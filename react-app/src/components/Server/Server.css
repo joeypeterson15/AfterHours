@@ -1,0 +1,123 @@
+.server-container {
+    border-left: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow-y:hidden;
+    grid-column: 1 / 2;
+    grid-row: 1 / 6
+}
+
+.server-container:nth-child(1){
+    padding-top: 10px;
+}
+.server-links-div {
+    box-sizing: border-box;
+    border-radius: 50%;
+
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    padding-top: 13%;
+    font-size: 20px;
+    background-size: contain;
+    transition: all .2s ease-in-out;
+    margin-top: 1rem;
+}
+
+.server-dashboard-div {
+    box-sizing: border-box;
+    /* border-radius: 50%; */
+
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    /* padding-top: 13%; */
+    font-size: 20px;
+    background-size: contain;
+    transition: all .2s ease-in-out;
+    /* padding-top: 20px; */
+}
+
+.joined-servers-div {
+    /* background-color: red; */
+    height: 23rem;
+    overflow-y: scroll;
+}
+
+
+.server-links-div:hover{
+    box-sizing: border-box;
+    border-radius: 15px;
+    /* height: 75px;
+    width: 75px; */
+    text-align: center;
+    background-size: contain;
+    transform: scale(1.05);
+}
+.vert-line {
+    color: #84878b;
+    font-size: 1.55rem;
+}
+.home-server {
+    /* margin-bottom: 1rem; */
+}
+.home-divider{
+    color: rgb(201, 201, 201);
+    width: 100%;
+    padding-top: 0.2rem;
+}
+.server-links {
+    text-decoration: none;
+    color: rgb(2, 0, 0);
+    font-weight: 800;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    text-shadow: rgb(255, 255, 255) 0px 0px 5px;
+
+}
+
+.add-server-modal, .server-links-explore{
+    background-color: rgb(56, 56, 56);
+    box-sizing: border-box;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    padding-top: 13%;
+    font-size: 20px;
+
+}
+
+.add-server-modal {
+    margin-bottom: 10px;
+}
+
+.server-container .add-server-container {
+    font-size: 12px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+    padding-left: 5px;
+    font-weight: 700;
+}
+
+.explore-server-icon {
+    color: rgb(77, 146, 37);
+    font-size: bigger;
+    margin-top: 5px;
+}
+
+.wumpus {
+    /* background-color: black; */
+    width: 500px;
+    padding: 1rem;
+    grid-column: 3/4;
+    grid-row: 3/5;
+    justify-self: center;
+}

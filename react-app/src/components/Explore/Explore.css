@@ -1,0 +1,241 @@
+.explore-container {
+    background-color: rgb(53, 53, 53);
+    width: 90%;
+    height: 100vh;
+
+    overflow: scroll;
+    flex-direction: column;
+    position: relative;
+
+
+    padding-left: 2em;
+    padding-right: 2em;
+    grid-column: 3/6;
+}
+
+.channels-container {
+    background-color: rgb(53, 53, 53);
+    width: 100%;
+    height: 100vh;
+    color: rgb(241, 239, 239);
+    grid-column: 2/ 3;
+    grid-row: 1 / 6;
+
+  }
+  .channels-container .scroll {
+    padding-bottom: 2rem;
+    overflow-y: scroll;
+  }
+
+  .channelExplore {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(46, 45, 45);
+    margin: 3px 6px;
+    border-radius: 7px;
+    min-height: 2.75rem;
+    width: 200px;
+  }
+
+  .channelExploreSelect {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+    margin: 3px 6px;
+    border-radius: 7px;
+    min-height: 2.75rem;
+  }
+  .channelExploreSelect p {
+    color: black;
+  }
+
+
+  .channelExplore * {
+    padding: 0 7px;
+  }
+  .channelExplore {
+    color: lightgray;
+  }
+
+
+  .channelExplore:hover {
+    background-color: rgb(66, 66, 66);
+    cursor: pointer;
+  }
+
+  .channelExplore p {
+    font-size: 16px;
+    display: inline-block;
+  }
+
+/* search */
+
+  .channel:hover {
+    background-color: rgb(66, 66, 66);
+    cursor: pointer;
+  }
+
+  .channel p {
+    font-size: 16px;
+    display: inline-block;
+  }
+/* search */
+
+.topPart {
+  width: 100%;
+  min-height: 100px;
+  max-height: 300px;
+  border-radius: 11px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-image: url('../video/1490237.jpg');
+  margin-top: 2rem;
+}
+
+.topSearch {
+  z-index: 0;
+  position: relative;
+  width: fit-content;
+  margin: 8vw auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topSearch h3 {
+  font-size: 25px;
+  color: black;
+  margin: 0;
+}
+
+.topSearch h5 {
+  font-size: 20px;
+  font-weight: 240;
+  color: black;
+  margin: 7px 0 16px 0;
+}
+
+.search-form {
+  max-width: 540px;
+  min-width: 350px;
+  width: 35vw;
+  background-color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border-radius: 3px;
+}
+
+.search-input {
+  flex-grow:1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-radius: 3px;
+}
+
+
+.sort-dropdown {
+  color: white;
+  padding: 2rem;
+}
+
+.featured {
+  color: white;
+  padding: 2rem;
+}
+
+
+
+   /* servers */
+  .ServerDisplay {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    margin-left: 1rem;
+  }
+
+/* Server Cards */
+
+
+
+
+.ServerFront {
+  width: 14rem;
+  height: 17rem;
+  background-color: white;
+  /* border-radius: 5rem; */
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  float:left;
+  margin: 25px 20px;
+
+
+}
+
+/* .ServerFrontTop {
+ width: 100%;
+ height: 62%;
+ background-color: green;
+ border-radius: 25px 25px 0 0;
+ float: left;
+} */
+
+.CardProfile {
+  width: 100%;
+  height: 13.5rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+
+
+
+
+  background-size: contain;
+
+
+}
+
+
+.ServerFrontBottom {
+  clear: both;
+  width: 100%;
+  height: 38%;
+  background-color: white;
+  border-radius: 0 0 25px 25px;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+.ServerFrontBottom h1 {
+  font-size: 18px;
+  color: black;
+  position: relative;
+  top: 10px;
+}
+
+
+
+
+.ServerFrontBottom h5 {
+font-size: 10px;
+color: rgb(59, 59, 59);
+position: relative;
+top: 30px;
+}
+
+.ServerFrontBottom h4 {
+  font-size: 16px;
+  position: relative;
+  top: 2rem;
+  color: rgba(0, 0, 0, 0.9)
+}
