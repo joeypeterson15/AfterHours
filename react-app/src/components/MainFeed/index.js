@@ -244,9 +244,7 @@ export const MainFeed = () => {
                             <div className="channel-content-message">{message[0]}</div>
 
                         </div>
-                                    {/* <div className="channel-content-message">
-                                        {`${message[1]}:${message[0]}`}
-                                    </div> */}
+                                
                             </div>
 
                         </div>

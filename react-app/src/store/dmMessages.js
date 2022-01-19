@@ -1,5 +1,6 @@
 const ADD_ONE_DM = 'dms/ADD_ONE_DM'
 const LOAD_ALL = '/dms/LOAD'
+const DELETE = 'dms/DELETE'
 
 const addDm = (message, userId) => ({
   type: ADD_ONE_DM,
@@ -11,6 +12,11 @@ const loadDms = (messages, userId) => ({
   type: LOAD_ALL,
   messages,
   userId
+})
+
+const deleteDmUser = (senderId) => ({
+  type: DELETE,
+  senderId
 })
 
 export const fetchDms = (userId) => async dispatch => {
@@ -36,24 +42,35 @@ export const createDm = (message) => async dispatch => {
 
 }
 
+export const removeDmUser = (dmuser, user) => {
+  const response  = await fetch(`api/dms/remove/${dmuser?.id}/${user?.id}`, {
+    method: 'DELETE',
+    headers: {'Content-Type' : 'application/json'}
+  })
+
+  if (response.ok) {
+    dispatch(deleteDmUser(dmuser?.id))
+  }
+}
+
 
 const initialState = {}
 const dmMessagesReducer = (state = initialState, action) => {
     switch(action.type) {
       case(LOAD_ALL):
         const prev = {...initialState }
-        // const dms = action.messages;
         action.messages.map(dm => {
           let key = dm.dm_server_Id == action.userId ? dm.senderId : dm.dm_server_Id;
           prev[key] = prev[key] ? [...prev[key], dm] : [dm]})
-          //   if (prev[dm.dm_server_Id]){
-          //   prev[dm.dm_server_Id] = [...prev[dm.dm_server_Id], dm]
-          // }
-          // else  prev[dm.dm_server_Id] = dm;
-          // })
         return prev;
+
       case(ADD_ONE_DM):
         return state
+
+      case(DELETE):
+          
+
+
       default:
         return state;
       }

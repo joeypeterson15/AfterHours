@@ -12,12 +12,12 @@ const HomeServer = () => {
   const [showClose, setShowClose] = useState(false)
   const [current, setCurrent] = useState()
   const [dmUser, setDmUser] = useState(null)
-  const [count, setCount] = useState(0)
 
   const user = useSelector(state => state.session.user)
 
   const dispatch = useDispatch()
-  const history = useSelector(state => Object.keys(state.dms))
+
+
 
   useEffect(() => {
     if (!showModal) return;
@@ -28,63 +28,45 @@ const HomeServer = () => {
     return () => document.removeEventListener("click", closeModal);
   }, [showModal]);
 
+
+
   const handleClick = () => {
     setShowModal(true)
   }
 
-  useEffect(() => {
-    if (history.length && !dmUsers.length && count == 0){
-      let urlString = ""
-      history.map((num, i) => {
-        if (i == 0) {
-        urlString += num;
-        }
-        else {
-          urlString += `-${num}`
-        }
-      })
-      fetch(`/api/users/dms/` + urlString).then(res => res.json())
-      .then(json =>  {
-        setDmUsers(json.users);
-        console.log(json.users, urlString)
-        setDmUser(json.users[0])
-      })
-      setCount(prev => prev + 1);
-    }
-  }, [history])
 
   useEffect(() => {
-    dispatch(fetchDms(user.id))
+    dispatch(fetchDms(user?.id))
   }, [])
 
-  // useEffect(() => {
-  //   if (dmUsers.length && count <= 1){
-  //     setDmUser(dmUsers[0]);
-  //   }
-  // }, [dmUsers, count, ])
 
 
-  const handleRemove = (user) => {
-    setDmUsers(dmUsers.filter(each => user.username !== each.username))
+
+  const handleRemove = (dmuser, user  ) => {
+    // setDmUsers(dmUsers.filter(each => user.username !== each.username))
+      const payload = {
+        dmuser : dmuser?.id,
+        user : user?.id
+      }
+
+      dispatch(removeDmUser(payload))
 
   }
 
   const addUser = (user) => {
-    // if ( !dmUsers.some(x => x.username === user.username) ){
-    //   setDmUsers(prev => [user, ...prev])
-    //   }
+
     if (!dmUsers.length){
       setDmUsers([user])
       setShowModal(false);
       return;
     }
     for (let i = 0; i < dmUsers.length; i++){
-      if(dmUsers[i].username == user.username) {
+      if(dmUsers[i].username == user?.username) {
         setShowModal(false);
         return
       }
     }
-    setDmUsers(prev => [user, ...prev])
+    // setDmUsers(prev => [user, ...prev])
     setShowModal(false);
   }
 

@@ -66,14 +66,14 @@ function Server () {
 
             <div id="home-plus-dm's-server-div">
 
-                    <div className="home-server">
+                    {/* <div className="home-server">
                         <Link className='server-links' to={`/dashboard`}>
                             <div className='server-links-div' style={{backgroundImage: `url("https://i.ibb.co/1rPFJn2/wavey-discord-logo.png")`}}>
                                 Home
                             </div>
 
                         </Link>
-                    </div>
+                    </div> */}
 
                 { homeServer &&
                     <div className="home-server">

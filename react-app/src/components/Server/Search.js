@@ -26,15 +26,6 @@ const Search = ({addUser, setDmUser }) => {
     setTerm(e.target.value);
   }
 
-  // useEffect(() => {
-  //   if (!showSearch) return;
-  //   const closeModal = () => {
-  //     setShowSearch(false);
-  //     setTerm('');
-  //   };
-  //   document.addEventListener('click', closeModal);
-  //   return () => document.removeEventListener("click", closeModal);
-  // }, [showSearch]);
 
 
   return (
@@ -44,7 +35,7 @@ const Search = ({addUser, setDmUser }) => {
         <input type="search"
            placeholder='Start Up A Conversation' value={term} onChange={handleSearch} />
 
-      
+
 
         { !!results.length && results?.map(user => (
 
