@@ -43,7 +43,7 @@ const HomeServer = () => {
 
 
 
-  const handleRemove = (dmuser, user  ) => {
+  const handleRemove = (dmuser, user) => {
 
       dispatch(removeDmUser(dmuser?.id, user?.id))
 

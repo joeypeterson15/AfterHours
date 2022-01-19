@@ -42,14 +42,15 @@ export const createDm = (message) => async dispatch => {
 
 }
 
-export const removeDmUser = async (dmuser, user) => {
+export const removeDmUser = (dmuser, user) => async dispatch => {
   const response  = await fetch(`/api/dms/remove/${dmuser?.id}/${user?.id}`, {
     method: 'DELETE',
     headers: {'Content-Type' : 'application/json'}
   })
 
   if (response.ok) {
-    const senderId = dmuser?.id
+    const senderId = await response.json()
+    // const senderId = dmuser?.id
     dispatch(deleteDmUser(senderId))
   }
 }
