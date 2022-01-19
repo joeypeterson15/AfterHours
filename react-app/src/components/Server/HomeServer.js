@@ -5,6 +5,7 @@ import './HomeServer.css'
 import DMFeed from '../MainFeed/DMFeed';
 import { fetchDms } from '../../store/dmMessages';
 import { useSelector, useDispatch } from 'react-redux';
+import { removeDmUser } from '../../store/dmMessages';
 const HomeServer = () => {
 
   const [showModal, setShowModal] = useState(false);
@@ -43,13 +44,8 @@ const HomeServer = () => {
 
 
   const handleRemove = (dmuser, user  ) => {
-    // setDmUsers(dmUsers.filter(each => user.username !== each.username))
-      const payload = {
-        dmuser : dmuser?.id,
-        user : user?.id
-      }
 
-      dispatch(removeDmUser(payload))
+      dispatch(removeDmUser(dmuser?.id, user?.id))
 
   }
 

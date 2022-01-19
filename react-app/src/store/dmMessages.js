@@ -42,14 +42,15 @@ export const createDm = (message) => async dispatch => {
 
 }
 
-export const removeDmUser = (dmuser, user) => {
-  const response  = await fetch(`api/dms/remove/${dmuser?.id}/${user?.id}`, {
+export const removeDmUser = async (dmuser, user) => {
+  const response  = await fetch(`/api/dms/remove/${dmuser?.id}/${user?.id}`, {
     method: 'DELETE',
     headers: {'Content-Type' : 'application/json'}
   })
 
   if (response.ok) {
-    dispatch(deleteDmUser(dmuser?.id))
+    const senderId = dmuser?.id
+    dispatch(deleteDmUser(senderId))
   }
 }
 
@@ -68,7 +69,7 @@ const dmMessagesReducer = (state = initialState, action) => {
         return state
 
       case(DELETE):
-          
+
 
 
       default:
