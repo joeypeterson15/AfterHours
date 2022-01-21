@@ -8,3 +8,4 @@ from .member_form import MemberForm
 from .edit_server_form import EditServerForm
 from .edit_message_form import EditMessageForm
 from .message_form import DmMessageForm
+from .add_dm_channel_form import addDmChannelForm

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import data from 'emoji-mart/data/google.json'
 import 'emoji-mart/css/emoji-mart.css'
-import { createDm, fetchDms } from '../../store/dmMessages'
+import { createOneDmMessage, getDmMessages } from '../../store/dmMessages'
 import MessageBox from './MessageBox'
 import './DmFeed.css'
 
@@ -25,28 +25,28 @@ const DMFeed = ({dmuser}) => {
   }, [dmuser])
 
 
-  useEffect(() => {
-    // open socket connection
-    // create websocket
-    socket = io();
-    socket.on('connect', function() {
-        socket.emit('join', 5 )
-    })
+//   useEffect(() => {
+//     // open socket connection
+//     // create websocket
+//     socket = io();
+//     socket.on('connect', function() {
+//         socket.emit('join', 5 )
+//     })
 
-    socket.on("chat", (data) => {
-        console.log('recieved socket message!!', data)
-        let chat = data.split('@')[0]
-        let user = data.split('@')[1]
-        let avatar = data.split('@')[2]
-        let createdAt = Date.now()
-        // setChatMessages((message) => [data, ...message])
-        setChatMessages((message) => [...message, [chat, user, avatar, createdAt]])
-    })
-    // when component unmounts, disconnect
-    return (() => {
-        socket.disconnect()
-    })
-}, [dispatch, chatmessages])
+//     socket.on("chat", (data) => {
+//         console.log('recieved socket message!!', data)
+//         let chat = data.split('@')[0]
+//         let user = data.split('@')[1]
+//         let avatar = data.split('@')[2]
+//         let createdAt = Date.now()
+//         // setChatMessages((message) => [data, ...message])
+//         setChatMessages((message) => [...message, [chat, user, avatar, createdAt]])
+//     })
+//     // when component unmounts, disconnect
+//     return (() => {
+//         socket.disconnect()
+//     })
+// }, [dispatch, chatmessages])
 
 const convertTime = function(oldTime){
   console.log(oldTime)
@@ -96,8 +96,8 @@ const isSameDay = function(oldTime) {
         username: user.username,
         imageUrl: user.avatar
      }
-    dispatch(createDm(payload))
-    socket.emit("chat", { 'msg': `${body}@${user?.username}@${user?.avatar}`, 'channelId': 5, 'user': user?.username})
+    dispatch(createOneDmMessage(payload))
+    // socket.emit("chat", { 'msg': `${body}@${user?.username}@${user?.avatar}`, 'channelId': 5, 'user': user?.username})
      scrollToBottom()
     setBody("")
       return
@@ -154,30 +154,7 @@ function scrollToBottom () {
           )}
           <div className="Main-Message-content">
 
-          {chatmessages.map((message) => (
-          <div className="live-chat-div">
-              <div className='decorated'>
-              <span>
-                  {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(message[3]))} {new Date(message[3]).getDate()}, 2021
-              </span>
-              </div>
 
-              <div className="username-message-container">
-
-                  <div className='live-chat-avatar-div' style={{backgroundImage: `url(${message[2]})`}}></div>
-                  <div>
-
-              <div className="date-div"><span className='username-div-message'>{message[1]}</span><span className='time-message'>{isSameDay(message[3]) === true ? "Today at  " : ''}{convertTime(new Date(message[3]).toString())}</span></div>
-              <div className="channel-content-message">{message[0]}</div>
-
-          </div>
-                      {/* <div className="channel-content-message">
-                          {`${message[1]}:${message[0]}`}
-                      </div> */}
-              </div>
-
-          </div>
-              ))}
 
           </div>
       </div>

@@ -6,6 +6,7 @@ import channels from './channel'
 import messagesReducer from './message';
 import membersReducer from './membersservers';
 import dmMessagesReducer from './dmMessages';
+import channelDmReducer from './channelDmReducer';
 
 
 const rootReducer = combineReducers({
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   channels,
   messages: messagesReducer,
   members: membersReducer,
+  channelDms : channelDmReducer,
   dms: dmMessagesReducer
 });
 

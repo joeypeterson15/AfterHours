@@ -3,18 +3,17 @@ import { useState, useEffect} from 'react';
 import Search from './Search'
 import './HomeServer.css'
 import DMFeed from '../MainFeed/DMFeed';
-import { fetchDms } from '../../store/dmMessages';
+import { createOneChannel, deleteOneChannel, getChannels } from '../../store/channelDmReducer';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeDmUser } from '../../store/dmMessages';
+import { removeDmUser } from '../../store/channelDmReducer';
 const HomeServer = () => {
 
   const [showModal, setShowModal] = useState(false);
-  const [dmUsers, setDmUsers] = useState([]);
   const [showClose, setShowClose] = useState(false)
-  const [current, setCurrent] = useState()
-  const [dmUser, setDmUser] = useState(null)
+  const [dmUser, setDmUser] = useState('')
+  const channels = useState(state => state.channelDms)
 
-  const user = useSelector(state => state.session.user)
+  const sessionUser = useSelector(state => state.session.user)
 
   const dispatch = useDispatch()
 
@@ -37,32 +36,24 @@ const HomeServer = () => {
 
 
   useEffect(() => {
-    dispatch(fetchDms(user?.id))
+    dispatch(getChannels(sessionUser?.id))
   }, [])
 
 
 
 
-  const handleRemove = (dmuser, user) => {
+  const handleRemove = (dmuser) => {
 
-      dispatch(removeDmUser(dmuser?.id, user?.id))
+      dispatch(deleteOneChannel(dmuser?.id, sessionUser?.id))
 
   }
 
-  const addUser = (user) => {
-
-    if (!dmUsers.length){
-      setDmUsers([user])
-      setShowModal(false);
-      return;
+  const addChannel = (user) => {
+    const payload = {
+      userId : sessionUser?.id,
+      friendId : user?.id
     }
-    for (let i = 0; i < dmUsers.length; i++){
-      if(dmUsers[i].username == user?.username) {
-        setShowModal(false);
-        return
-      }
-    }
-    // setDmUsers(prev => [user, ...prev])
+    dispatch(createOneChannel(payload))
     setShowModal(false);
   }
 
@@ -77,7 +68,7 @@ const HomeServer = () => {
       <div className='dm-container'>
         <h3>Direct Messages</h3>
 
-        {dmUsers?.map( (user, i) =>
+        {/* {dmUsers?.map( (user, i) =>
 
          <div className='dm-icon'
          onClick={()=> setDmUser(user)}
@@ -91,11 +82,11 @@ const HomeServer = () => {
 
         )
 
-        }
+        } */}
       </div>
 
       <div className='search-wrapper' >
-          { showModal && <Search addUser={addUser} dmUsers={dmUsers} setDmUser={setDmUser} setShowModal={setShowModal}/>}
+          { showModal && <Search addChannel={addChannel} setDmUser={setDmUser} setShowModal={setShowModal}/>}
       </div>
     </div>
       {dmUser ? <DMFeed dmuser={dmUser} /> : <img className='wumbus' src='https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5e6ff2eb37d0440006bc9fe7%2FDiscord%2F960x0.jpg%3Ffit%3Dscale'></img>}
