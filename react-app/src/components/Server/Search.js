@@ -12,8 +12,9 @@ const Search = () => {
   // const [isLoaded, setIsLoaded] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   // const history = useHistory();
+  const dispatch = useDispatch()
 
-  const sessionUser = useState(state => state.session.user)
+  const sessionUser = useSelector(state => state.session.user)
 
   useEffect(()=> {
     if(term.length > 0) {

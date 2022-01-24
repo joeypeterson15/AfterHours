@@ -6,6 +6,7 @@ import DMFeed from '../MainFeed/DMFeed';
 import { fetchDms } from '../../store/dmMessages';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeDmUser } from '../../store/dmMessages';
+import { getDmChannels } from '../../store/dmChannel';
 const HomeServer = () => {
 
   const [showModal, setShowModal] = useState(false);
@@ -17,6 +18,9 @@ const HomeServer = () => {
   const user = useSelector(state => state.session.user)
 
   const dispatch = useDispatch()
+
+  const dmChannels = useSelector(state => Object.values(state.dmChannels))
+  console.log('dmChannels', dmChannels)
 
 
 
@@ -37,6 +41,7 @@ const HomeServer = () => {
 
 
   useEffect(() => {
+    dispatch(getDmChannels(user?.id))
     dispatch(fetchDms(user?.id))
   }, [])
 
@@ -49,22 +54,6 @@ const HomeServer = () => {
 
   }
 
-  const addUser = (user) => {
-
-    if (!dmUsers.length){
-      setDmUsers([user])
-      setShowModal(false);
-      return;
-    }
-    for (let i = 0; i < dmUsers.length; i++){
-      if(dmUsers[i].username == user?.username) {
-        setShowModal(false);
-        return
-      }
-    }
-    // setDmUsers(prev => [user, ...prev])
-    setShowModal(false);
-  }
 
 
 
@@ -77,7 +66,7 @@ const HomeServer = () => {
       <div className='dm-container'>
         <h3>Direct Messages</h3>
 
-        {dmUsers?.map( (user, i) =>
+        {/* {dmUsers?.map( (user, i) =>
 
          <div className='dm-icon'
          onClick={()=> setDmUser(user)}
@@ -91,11 +80,15 @@ const HomeServer = () => {
 
         )
 
-        }
+        } */}
+
+        {dmChannels.map(dmChannel =>
+            <div onClick={() => setDmUser(dmChannel)}>{dmChannel?.friendId}</div>
+          )}
       </div>
 
       <div className='search-wrapper' >
-          { showModal && <Search addUser={addUser} dmUsers={dmUsers} setDmUser={setDmUser} setShowModal={setShowModal}/>}
+          { showModal && <Search dmUsers={dmUsers} setDmUser={setDmUser} setShowModal={setShowModal}/>}
       </div>
     </div>
       {dmUser ? <DMFeed dmuser={dmUser} /> : <img className='wumbus' src='https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5e6ff2eb37d0440006bc9fe7%2FDiscord%2F960x0.jpg%3Ffit%3Dscale'></img>}

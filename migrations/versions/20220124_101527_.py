@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 181b84c8a4ea
+Revision ID: 4141479c7f1b
 Revises: 
-Create Date: 2022-01-24 09:45:17.518738
+Create Date: 2022-01-24 10:15:27.975406
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '181b84c8a4ea'
+revision = '4141479c7f1b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -49,6 +49,14 @@ def upgrade():
     sa.Column('name', sa.String(length=50), nullable=False),
     sa.Column('banner', sa.String(length=500), nullable=True),
     sa.ForeignKeyConstraint(['ownerId'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('dmchannels',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('userId', sa.Integer(), nullable=False),
+    sa.Column('friendId', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['friendId'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('servers',
@@ -100,6 +108,7 @@ def downgrade():
     op.drop_table('server_members')
     op.drop_table('channels')
     op.drop_table('servers')
+    op.drop_table('dmchannels')
     op.drop_table('dm_servers')
     op.drop_table('dm_messages')
     op.drop_table('users')
