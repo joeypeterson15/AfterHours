@@ -16,10 +16,11 @@ const [body, setBody] = useState('')
 const sessionUser = useSelector(state => state.session?.user)
 
 const dms = useSelector(state => Object.values(state.dms))
+console.log('dms', dms)
 
 useEffect(() => {
-  dispatch(fetchDms(dmuser?.friendId))
-})
+  dispatch(fetchDms(dmuser?.id))
+}, [dmuser])
 
 
 
@@ -51,15 +52,17 @@ const isSameDay = function(oldTime) {
 
 const handleDm = (e) => {
     e.preventDefault()
+
     const payload = {
-      userId : sessionUser?.id,
-      friendId : dmuser?.friendId,
-      friendAvatar : dmuser?.friendAvatar,
-      friendName : dmuser?.friendName,
-      message : body
+      senderId : sessionUser?.id,
+      dm_server_Id : dmuser?.id,
+      imageUrl : sessionUser?.avatar,
+      username : sessionUser?.username,
+      body
     }
 
     dispatch(createDm(payload))
+    dispatch(fetchDms(dmuser?.id))
 }
 
 
@@ -80,7 +83,7 @@ const handleDm = (e) => {
           <div className='live-chat-avatar-div' style={{backgroundImage: `url(${dm?.imageUrl})`}}> </div>
           <div className='inner-dm-message'>
             <div className='dm-date-time'>
-            <h3>{dm.username}</h3>
+            <h3>{dm?.username}</h3>
             <div className='decorated'>
                 <span>
                     {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(dm?.createdAt))} {new Date(dm?.createdAt).getDate()}, 2021
@@ -133,6 +136,7 @@ const handleDm = (e) => {
 
 
                         </label>
+                        <button type="submit">Send</button>
                     </form>
                 </div>
 

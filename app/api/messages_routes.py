@@ -42,4 +42,4 @@ def delete_message(messageId):
     db.session.commit()
     return { 'messageId' : messageId, 'channelId' : message.channelId }
 
-# hi
+
