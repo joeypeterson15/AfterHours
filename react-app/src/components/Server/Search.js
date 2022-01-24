@@ -32,9 +32,12 @@ const Search = () => {
   }
 
   const addDmChannel = (user) => {
+    console.log('friend', user)
     const payload = {
       userId: sessionUser?.id,
-      friendId: user?.id
+      friendId: user?.id,
+      friendAvatar: user?.avatar,
+      friendName: user?.username
     }
 
     dispatch(createOneDmChannel(payload))

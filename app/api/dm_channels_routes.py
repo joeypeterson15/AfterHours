@@ -19,17 +19,17 @@ def create_channel():
         channel1 = DMChannel (
             userId = form.data['userId'],
             friendId = form.data['friendId'],
-            # friendAvatar = form.data['friendAvatar'],
-            # friendUsername = form.data['friendUsername'],
+            friendAvatar = form.data['friendAvatar'],
+            friendName = form.data['friendName'],
         )
-        channel2 = DMChannel (
-            userId = form.data['friendId'],
-            friendId = form.data['userId'],
-            # friendAvatar = form.data['userAvatar'],
-            # friendUsername = form.data['username'],
-        )
+        # channel2 = DMChannel (
+        #     userId = form.data['friendId'],
+        #     friendId = form.data['userId'],
+        #     # friendAvatar = form.data['userAvatar'],
+        #     # friendUsername = form.data['username'],
+        # )
     db.session.add(channel1)
-    db.session.add(channel2)
+    # db.session.add(channel2)
     db.session.commit()
     return {'channel' : channel1.to_dict()}
 

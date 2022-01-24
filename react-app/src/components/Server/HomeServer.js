@@ -83,7 +83,7 @@ const HomeServer = () => {
         } */}
 
         {dmChannels.map(dmChannel =>
-            <div onClick={() => setDmUser(dmChannel)}>{dmChannel?.friendId}</div>
+            <div onClick={() => setDmUser(dmChannel)}>{dmChannel?.friendName}</div>
           )}
       </div>
 
