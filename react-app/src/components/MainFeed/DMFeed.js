@@ -62,6 +62,7 @@ const handleDm = (e) => {
     }
 
     dispatch(createDm(payload))
+    setBody('')
     dispatch(fetchDms(dmuser?.id))
 }
 
@@ -72,12 +73,12 @@ const handleDm = (e) => {
     <div className='dm-feed-container'>
 
       <div className='dm-message-container'>
-      <div className="dm-history">
+        {dms.length === 0 ? <div className="dm-history">
           < div className='avatar' style={{backgroundImage: `url(${dmuser.friendAvatar})` }} ></div>
           <h2>{dmuser.friendName}</h2>
           <h4>This is the beginning of your direct message history with @{dmuser.friendName}</h4>
 
-        </div>
+        </div> : ''}
         {dms && dms.map(dm =>
         <div className='dm-message'>
           <div className='live-chat-avatar-div' style={{backgroundImage: `url(${dm?.imageUrl})`}}> </div>

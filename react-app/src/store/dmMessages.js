@@ -75,6 +75,7 @@ const dmMessagesReducer = (state = initialState, action) => {
           const newState = {
             ...state,
         }
+          newState[action.message.message.id] = action.message.message
         return newState
       }
 

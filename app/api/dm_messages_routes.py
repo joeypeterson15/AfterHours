@@ -26,4 +26,4 @@ def send_dm():
         )
   db.session.add(message)
   db.session.commit()
-  return message.to_dict()
+  return {'message' : message.to_dict()}
