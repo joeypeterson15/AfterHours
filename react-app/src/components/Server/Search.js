@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux"
 import { createOneDmChannel } from "../../store/dmChannel"
 import './HomeServer.css'
 
-const Search = () => {
+const Search = ({ setShowModal }) => {
   const [term, setTerm] = useState("")
   const [results, setResults] = useState([])
   const currentUser = useSelector(state => state.session.user)
@@ -41,6 +41,7 @@ const Search = () => {
     }
 
     dispatch(createOneDmChannel(payload))
+    setShowModal(false)
   }
 
 

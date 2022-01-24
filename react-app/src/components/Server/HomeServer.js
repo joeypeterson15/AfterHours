@@ -1,12 +1,15 @@
 import React from 'react'
 import { useState, useEffect} from 'react';
+import { useHistory } from "react-router-dom";
 import Search from './Search'
 import './HomeServer.css'
 import DMFeed from '../MainFeed/DMFeed';
 import { fetchDms } from '../../store/dmMessages';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch} from 'react-redux';
 import { removeDmUser } from '../../store/dmMessages';
 import { deleteOneDmChannel, getDmChannels } from '../../store/dmChannel';
+import LoggedIn from '../LoggedIn';
+
 const HomeServer = () => {
 
   const [showModal, setShowModal] = useState(false);
@@ -18,6 +21,7 @@ const HomeServer = () => {
   const user = useSelector(state => state.session.user)
 
   const dispatch = useDispatch()
+  let history = useHistory()
 
   const dmChannels = useSelector(state => Object.values(state.dmChannels))
   console.log('dmChannels', dmChannels)
@@ -51,7 +55,8 @@ const HomeServer = () => {
   const handleRemove = (id) => {
     console.log('id', id)
       dispatch(deleteOneDmChannel(id))
-
+      setDmUser(null)
+      history.push('/dashboard')
   }
 
 
@@ -91,13 +96,14 @@ const HomeServer = () => {
 
             </div>
           )}
+      <LoggedIn />
       </div>
 
       <div className='search-wrapper' >
           { showModal && <Search dmUsers={dmUsers} setDmUser={setDmUser} setShowModal={setShowModal}/>}
       </div>
     </div>
-      {dmUser ? <DMFeed dmuser={dmUser} /> : <img className='wumbus' src='https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5e6ff2eb37d0440006bc9fe7%2FDiscord%2F960x0.jpg%3Ffit%3Dscale'></img>}
+      {dmUser ? <DMFeed setdmuser={setDmUser} dmuser={dmUser} /> : <img className='wumbus' src='https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5e6ff2eb37d0440006bc9fe7%2FDiscord%2F960x0.jpg%3Ffit%3Dscale'></img>}
 
     </>
   )

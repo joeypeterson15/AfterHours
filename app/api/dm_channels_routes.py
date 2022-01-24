@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.models import DMChannel, User, db, Message
+from app.models import DMChannel, User, db, DMMessage
 from app.forms import addDmChannelForm
 
 dm_channels_routes = Blueprint('dmchannels', __name__)
@@ -36,10 +36,10 @@ def create_channel():
 @dm_channels_routes.route('/delete/<int:id>', methods=['DELETE'])
 def delete_channel(id):
     channel = DMChannel.query.get(id)
-    # messages = Message.query.filter(Message.channelId == channelId).all()
-    # print('messages!!!!!!', messages)
-    # [db.session.delete(message) for message in messages]
-    # db.session.commit()
+    messages = DMMessage.query.filter(DMMessage.dm_server_Id == id).all()
+    print('messages!!!!!!', messages)
+    [db.session.delete(message) for message in messages]
+    db.session.commit()
     db.session.delete(channel)
     db.session.commit()
     return {'channelId' : id}

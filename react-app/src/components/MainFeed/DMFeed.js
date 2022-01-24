@@ -9,7 +9,7 @@ import './DmFeed.css'
 import { io } from 'socket.io-client';
 let socket;
 
-const DMFeed = ({dmuser}) => {
+const DMFeed = ({dmuser, setdmuser}) => {
 
 const dispatch = useDispatch()
 const [body, setBody] = useState('')
@@ -95,51 +95,57 @@ const handleDm = (e) => {
           </div>
         </div>
           )}
-          {/* <div className="Main-Message-content">
 
-          {chatmessages.map((message) => (
-          <div className="live-chat-div">
-              <div className='decorated'>
-              <span>
-                  {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(message[3]))} {new Date(message[3]).getDate()}, 2021
-              </span>
-              </div>
-
-              <div className="username-message-container">
-
-                  <div className='live-chat-avatar-div' style={{backgroundImage: `url(${message[2]})`}}></div>
-                  <div>
-
-              <div className="date-div"><span className='username-div-message'>{message[1]}</span><span className='time-message'>{isSameDay(message[3]) === true ? "Today at  " : ''}{convertTime(new Date(message[3]).toString())}</span></div>
-              <div className="channel-content-message">{message[0]}</div>
-
-          </div>
-
-              </div>
-
-          </div>
-              ))}
-
-          </div> */}
       </div>
-        <div className="channel-content-chat-input-container dm-input">
-                    <form className="new-dm-form" onSubmit={(e) => handleDm(e)} >
-                        <label className="new-message-label">
-                            <textarea
-                                type="text"
-                                className="new-message-input"
-                                value={body}
-                                onChange={(e)=> setBody(e.target.value)}
+
+      <div>
+
+        {/* <form  onSubmit={(e) => handleDm(e)} >
+
+                <input
+                    type="text"
+                    className="dm-message-input"
+                    value={body}
+                    onChange={(e)=> setBody(e.target.value)}
 
 
-                                placeholder={`Message #${dmuser?.friendName}`}
-                            ></textarea>
+                    placeholder={`Message #${dmuser?.friendName}`}
+                ></input>
+
+        </form> */}
+
+        <div onSubmit={(e) => handleDm(e)} className="channel-content-chat-input-container">
+                        <form className="new-message-form">
 
 
-                        </label>
-                        <button type="submit">Send</button>
-                    </form>
+
+                            <label className="new-message-label">
+                                <input
+                                    type="text"
+                                    className="new-message-input"
+                                    value={body}
+                                    onChange={(e)=> setBody(e.target.value)}
+                                ></input>
+
+
+                            </label>
+                        </form>
+                    </div>
+
+      </div>
+
+
+        <div className="dm-members-div">
+            <h2 id="dm-members-title">MEMBER:</h2>
+
+                <div className="dm-div">
+                    <div className="user-avatar" style={{backgroundImage: `url(${dmuser?.friendAvatar})`}}></div>
+                    <span className="dm-member-name">{dmuser?.friendName}</span>
                 </div>
+
+        </div>
+
+
 
     </div>
   )

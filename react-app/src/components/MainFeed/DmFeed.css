@@ -109,3 +109,64 @@
 .decorated > span:after{
  left: 100%;
 }
+
+.new-dm-form {
+  position: absolute;
+  background-color: red;
+  width: 51rem;
+}
+
+.dm-members-div {
+  background-color: rgb(83, 83, 83);
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 14rem;
+}
+
+.dm-div {
+  display: flex;
+  padding-top: 1.5rem;
+  color: white;
+}
+
+#dm-members-title {
+  padding-top: 1rem;
+  padding-left: 0.5rem;
+}
+
+.dm-member-name {
+  font-size: 15px;
+  color: white;
+  padding-left: 0.7rem;
+  padding-top: 0.6rem;
+}
+
+/* #dm-button-send {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 0.1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(134, 96, 96, 0);
+  color: white;
+  border: none;
+} */
+
+.dm-message-input {
+  height: 3.2rem;
+  line-height: 3rem;
+  padding: 0 0 1rem 1rem;
+  font-size: 1.2rem;
+  width: 100%;
+  position: absolute;
+  bottom: 1rem;
+  /* background-color: rgba(45, 35, 235, 1); */
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.dm-form-div {
+  background-color: blue;
+}
