@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useHistory } from "react-router"
 import { useDispatch } from "react-redux"
+import { createOneDmChannel } from "../../store/dmChannel"
 import './HomeServer.css'
 
 const Search = () => {
@@ -35,7 +36,7 @@ const Search = () => {
       friendId: user?.id
     }
 
-    dispatch(addOneChannel(payload))
+    dispatch(createOneDmChannel(payload))
   }
 
 
