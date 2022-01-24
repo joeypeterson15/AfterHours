@@ -15,7 +15,7 @@ from .api.servers_routes import servers_routes
 from .api.messages_routes import messages_routes
 
 from .api.channels_routes import channels_routes
-
+from .api.dm_channels_routes import dm_channels_routes
 from .api.servers_routes import servers_routes
 from .api.members import members_routes
 from .api.dm_messages_routes import dm_messages_routes
@@ -55,6 +55,8 @@ app.register_blueprint(servers_routes, url_prefix='/api/servers')
 app.register_blueprint(messages_routes, url_prefix='/api/messages')
 app.register_blueprint(members_routes, url_prefix='/api/members')
 app.register_blueprint(dm_messages_routes, url_prefix='/api/dms')
+app.register_blueprint(dm_channels_routes, url_prefix='/api/dmchannels')
+
 
 db.init_app(app)
 Migrate(app, db)
