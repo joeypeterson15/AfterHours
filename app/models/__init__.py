@@ -6,3 +6,4 @@ from .message import Message
 from .servermembers import ServerMember
 from .dm_server import DMServer
 from .dm_messages import DMMessage
+from .dmChannel import DMChannel

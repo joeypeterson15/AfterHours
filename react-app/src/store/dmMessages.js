@@ -2,16 +2,14 @@ const ADD_ONE_DM = 'dms/ADD_ONE_DM'
 const LOAD_ALL = '/dms/LOAD'
 const DELETE = 'dms/DELETE'
 
-const addDm = (message, userId) => ({
+const addDm = (message) => ({
   type: ADD_ONE_DM,
-  message,
-  userId
+  message
 })
 
-const loadDms = (messages, userId) => ({
+const loadDms = (messages) => ({
   type: LOAD_ALL,
   messages,
-  userId
 })
 
 const deleteDmUser = (senderId) => ({
@@ -19,21 +17,21 @@ const deleteDmUser = (senderId) => ({
   senderId
 })
 
-export const fetchDms = (userId) => async dispatch => {
-  const res = await fetch(`/api/dms/${userId}`)
+export const fetchDms = (dmChannelId) => async dispatch => {
+  const res = await fetch(`/api/dms/${dmChannelId}`)
   if (res.ok){
     const messages = await res.json()
-    dispatch(loadDms(messages['dms'], userId))
+    dispatch(loadDms(messages))
   }
 }
 
-export const createDm = (message) => async dispatch => {
+export const createDm = (payload) => async dispatch => {
   const response = await fetch('/api/dms/new', {
     method: 'POST',
     headers: {
         'Content-Type' : 'application/json',
     },
-    body: JSON.stringify({...message})
+    body: JSON.stringify({...payload})
   })
   if (response.ok) {
     const message = await response.json()
@@ -59,23 +57,31 @@ export const removeDmUser = (dmuser, user) => async dispatch => {
 const initialState = {}
 const dmMessagesReducer = (state = initialState, action) => {
     switch(action.type) {
-      case(LOAD_ALL):
-        const prev = {...initialState }
-        action.messages.map(dm => {
-          let key = dm.dm_server_Id == action.userId ? dm.senderId : dm.dm_server_Id;
-          prev[key] = prev[key] ? [...prev[key], dm] : [dm]})
-        return prev;
+      case(LOAD_ALL): {
+        let allMessages = {};
 
-      case(ADD_ONE_DM):
-        return state
+            // allMessages = {...action.messages.messages}
+            action.messages.messages.forEach(message => {
+              allMessages[message.id] = message
+          });
 
-      case(DELETE):
-
-
-
-      default:
-        return state;
-      }
+        return {
+            ...allMessages,
+            // ...state,
+        }
     }
+
+      case(ADD_ONE_DM): {
+          const newState = {
+            ...state,
+        }
+          newState[action.message.message.id] = action.message.message
+        return newState
+      }
+
+        default:
+        return state;
+    }
+}
 
 export default dmMessagesReducer

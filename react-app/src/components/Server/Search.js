@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useHistory } from "react-router"
+import { useDispatch } from "react-redux"
+import { createOneDmChannel } from "../../store/dmChannel"
 import './HomeServer.css'
 
-const Search = ({addUser, setDmUser }) => {
+const Search = ({ setShowModal }) => {
   const [term, setTerm] = useState("")
   const [results, setResults] = useState([])
   const currentUser = useSelector(state => state.session.user)
   // const [isLoaded, setIsLoaded] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   // const history = useHistory();
+  const dispatch = useDispatch()
+
+  const sessionUser = useSelector(state => state.session.user)
 
   useEffect(()=> {
     if(term.length > 0) {
@@ -26,6 +31,19 @@ const Search = ({addUser, setDmUser }) => {
     setTerm(e.target.value);
   }
 
+  const addDmChannel = (user) => {
+    console.log('friend', user)
+    const payload = {
+      userId: sessionUser?.id,
+      friendId: user?.id,
+      friendAvatar: user?.avatar,
+      friendName: user?.username
+    }
+
+    dispatch(createOneDmChannel(payload))
+    setShowModal(false)
+  }
+
 
 
   return (
@@ -39,7 +57,7 @@ const Search = ({addUser, setDmUser }) => {
 
         { !!results.length && results?.map(user => (
 
-        <div  className='search-results-div' onClick={()=> { addUser(user); setDmUser(user) }}>
+        <div  className='search-results-div' onClick={()=> {addDmChannel(user)}}>
 
           <img src={user.avatar}></img>
           <p>{user.username}</p>
