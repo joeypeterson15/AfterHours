@@ -6,7 +6,7 @@ import DMFeed from '../MainFeed/DMFeed';
 import { fetchDms } from '../../store/dmMessages';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeDmUser } from '../../store/dmMessages';
-import { getDmChannels } from '../../store/dmChannel';
+import { deleteOneDmChannel, getDmChannels } from '../../store/dmChannel';
 const HomeServer = () => {
 
   const [showModal, setShowModal] = useState(false);
@@ -42,15 +42,15 @@ const HomeServer = () => {
 
   useEffect(() => {
     dispatch(getDmChannels(user?.id))
-    dispatch(fetchDms(user?.id))
+    // dispatch(fetchDms(user?.id))
   }, [])
 
 
 
 
-  const handleRemove = (dmuser, user) => {
-
-      dispatch(removeDmUser(dmuser?.id, user?.id))
+  const handleRemove = (id) => {
+    console.log('id', id)
+      dispatch(deleteOneDmChannel(id))
 
   }
 
@@ -83,7 +83,13 @@ const HomeServer = () => {
         } */}
 
         {dmChannels.map(dmChannel =>
-            <div onClick={() => setDmUser(dmChannel)}>{dmChannel?.friendName}</div>
+            <div className='dm-icon' onClick={() => setDmUser(dmChannel)}>
+              <img src={dmChannel?.friendAvatar} className='dm-links'></img>
+              <p>{dmChannel?.friendName}</p>
+              <span className="close-dm" style={{color: "rgb(187, 185, 185)"}}
+              onClick={() =>  handleRemove(dmChannel?.id)}><i class="fas fa-times"></i></span>
+
+            </div>
           )}
       </div>
 

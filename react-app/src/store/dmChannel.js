@@ -43,7 +43,7 @@ export const createOneDmChannel = (payload) => async dispatch => {
     }
 }
 
-export const deleteOneDmChannel = (userId, friendId, channelId) => async dispatch => {
+export const deleteOneDmChannel = (channelId) => async dispatch => {
     const response = await fetch(`/api/dmchannels/delete/${channelId}`, {
         method: 'DELETE',
         // headers: {

@@ -27,13 +27,13 @@ export const fetchDms = (userId) => async dispatch => {
   }
 }
 
-export const createDm = (message) => async dispatch => {
+export const createDm = (payload) => async dispatch => {
   const response = await fetch('/api/dms/new', {
     method: 'POST',
     headers: {
         'Content-Type' : 'application/json',
     },
-    body: JSON.stringify({...message})
+    body: JSON.stringify({...payload})
   })
   if (response.ok) {
     const message = await response.json()

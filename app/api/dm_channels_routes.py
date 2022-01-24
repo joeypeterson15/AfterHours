@@ -33,13 +33,13 @@ def create_channel():
     db.session.commit()
     return {'channel' : channel1.to_dict()}
 
-@dm_channels_routes.route('/delete/<int:channelId>', methods=['DELETE'])
-def delete_channel(channelId):
-    channel = DMChannel.query.get(channelId)
-    messages = Message.query.filter(Message.channelId == channelId).all()
-    print('messages!!!!!!', messages)
-    [db.session.delete(message) for message in messages]
-    db.session.commit()
+@dm_channels_routes.route('/delete/<int:id>', methods=['DELETE'])
+def delete_channel(id):
+    channel = DMChannel.query.get(id)
+    # messages = Message.query.filter(Message.channelId == channelId).all()
+    # print('messages!!!!!!', messages)
+    # [db.session.delete(message) for message in messages]
+    # db.session.commit()
     db.session.delete(channel)
     db.session.commit()
-    return {'channelId' : channelId}
+    return {'channelId' : id}
