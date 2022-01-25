@@ -96,7 +96,10 @@ const HomeServer = () => {
 
             </div>
           )}
-      <LoggedIn />
+          <div className="dm-loggedin-div">
+              <LoggedIn />
+
+          </div>
       </div>
 
       <div className='search-wrapper' >
