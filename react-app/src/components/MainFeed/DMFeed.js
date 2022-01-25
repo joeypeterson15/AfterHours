@@ -69,6 +69,7 @@ const handleDm = (e) => {
 
   return (
 
+    <>
 
     <div className='dm-feed-container'>
 
@@ -98,41 +99,7 @@ const handleDm = (e) => {
 
       </div>
 
-      <div>
 
-        {/* <form  onSubmit={(e) => handleDm(e)} >
-
-                <input
-                    type="text"
-                    className="dm-message-input"
-                    value={body}
-                    onChange={(e)=> setBody(e.target.value)}
-
-
-                    placeholder={`Message #${dmuser?.friendName}`}
-                ></input>
-
-        </form> */}
-
-        <div onSubmit={(e) => handleDm(e)} className="channel-content-chat-input-container">
-                        <form className="new-message-form">
-
-
-
-                            <label className="new-message-label">
-                                <input
-                                    type="text"
-                                    className="new-message-input"
-                                    value={body}
-                                    onChange={(e)=> setBody(e.target.value)}
-                                ></input>
-
-
-                            </label>
-                        </form>
-                    </div>
-
-      </div>
 
 
         <div className="dm-members-div">
@@ -147,7 +114,26 @@ const handleDm = (e) => {
 
 
 
+
+          <form className="send-dm-message-form" onSubmit={(e) => handleDm(e)} >
+
+                  <input
+                      type="text"
+                      className="input-dm-message"
+                      value={body}
+                      onChange={(e)=> setBody(e.target.value)}
+                      // placeholder={`Message #${dmuser?.friendName}...`}
+                  ></input>
+          </form>
+
     </div>
+
+
+
+
+    </>
+
+
   )
 }
 

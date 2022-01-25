@@ -1,5 +1,5 @@
 .loggedin-container {
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(51, 51, 51);
     /* margin: auto 0 0 0; */
     height: 4rem;
     display: flex;
@@ -136,4 +136,5 @@
 
   #username-bottom-channels-bar {
     padding-top: 0.5rem;
+    color: white;
   }

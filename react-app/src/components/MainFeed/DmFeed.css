@@ -142,31 +142,14 @@
   padding-top: 0.6rem;
 }
 
-/* #dm-button-send {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 0.1rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: rgba(134, 96, 96, 0);
-  color: white;
-  border: none;
-} */
 
-.dm-message-input {
-  height: 3.2rem;
-  line-height: 3rem;
-  padding: 0 0 1rem 1rem;
-  font-size: 1.2rem;
-  width: 100%;
-  position: absolute;
-  bottom: 1rem;
-  /* background-color: rgba(45, 35, 235, 1); */
-  border: none;
-  outline: none;
-  color: white;
-}
-
-.dm-form-div {
-  background-color: blue;
+.input-dm-message {
+  position: fixed;
+    width: 48rem;
+    bottom: 1rem;
+    left: 26rem;
+    height: 3rem;
+    background-color: grey;
+    border-radius: 1rem;
+    border: 0.2px solid rgb(134, 134, 134);
 }
