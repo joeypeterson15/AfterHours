@@ -32,7 +32,6 @@
 .server-dashboard-div {
     box-sizing: border-box;
     /* border-radius: 50%; */
-
     height: 60px;
     width: 60px;
     text-align: center;
@@ -46,6 +45,11 @@
 .joined-servers-div {
     /* background-color: red; */
     height: 23rem;
+    overflow-y: scroll;
+}
+.small-servers-div {
+    /* background-color: red; */
+    /* height: 10rem; */
     overflow-y: scroll;
 }
 

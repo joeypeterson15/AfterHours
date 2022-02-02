@@ -88,7 +88,7 @@ function Server () {
 
             </div>
 
-            <div className="joined-servers-div">
+            <div className={servers.length >= 5 ? "joined-servers-div" : "small-servers-div"}>
 
                 {servers.map((server) => (
                 server !== homeServer &&

@@ -8,46 +8,46 @@
     left: 0;
     right: 0;
     background-attachment: fixed;
-  }    
+  }
 
   .logIn {
-    font-size: 40px;  
+    font-size: 40px;
     border: none;
     background-color: rgba(0, 0, 0, 0);
     color: white;
     position: absolute;
     right: 4%;
     top: 1em;
-    background-attachment: fixed;  
+    background-attachment: fixed;
     position: fixed;
 
 }
 
 .logIn ul {
-  line-height: 10em; 
+  line-height: 10em;
 }
 .loginbutton li {
-  margin: 10px 0;    
-}  
+  margin: 10px 0;
+}
 
-.logIn li  a { 
-  
+.logIn li  a {
+
  color: white;
- padding: 1rem;    
+ padding: 1rem;
  font-weight: 100;
- cursor:pointer;  
+ cursor:pointer;
  margin-bottom: 20px;
  padding-inline: 5px;
 }
 
-.firstimg { 
-  background-image: url('../video/Splash1.svg'); 
+.firstimg {
+  background-image: url('../video/Splash1.svg');
   width: 678px;
-  height: 440px;  
+  height: 440px;
 }
-  
+
 .secondimg {
-  background-image: url('../video/Splash2.svg'); 
+  background-image: url('../video/Splash2.svg');
   width:678px;
   height:440px;
 }
@@ -61,10 +61,10 @@
 .fourthimg{
 
   z-index: 1;
-  width: 874px; 
-  height: 530px; 
+  width: 874px;
+  height: 530px;
   display: flex;
-  justify-content: center;   
+  justify-content: center;
   align-items: center;
 
 }
@@ -73,15 +73,15 @@
 }
 .fourthimg {
   background-image: url('../video/Splash4.svg');
-}  
-  
+}
+
 
 
 .Screen1 {
-  
+
     width: 780px;
-    margin: 0 auto; 
-    margin-top: 300px; 
+    margin: 0 auto;
+    margin-top: 300px;
     margin-bottom: 400px;
     display: flex;
     flex-direction: column;
@@ -93,27 +93,27 @@
     border-radius: 15px;
 
   }
-  
+
   .Screen1 h1,
   .Screen1 h2 {
     color: white;
   }
-  
+
   .Screen1 h1 {
     font-size: 64px;
     margin: 0;
     margin-bottom: 3px;
     font-family: "Kanit", sans-serif;
   }
-  
+
   .Screen1 h2 {
     font-weight: 200;
     font-size: 19px;
     text-align: center;
     line-height: 30px;
-    font-family: Arial, Helvetica, sans-serif;  
+    font-family: Arial, Helvetica, sans-serif;
   }
-      
+
   .footer,
   .Screen2,
   .Screen3,
@@ -128,14 +128,14 @@
     background-color: black;
     color: white;
     opacity: .7;
-    border-radius: 10px; 
-    margin: 0 auto; 
-    margin-top: 300px; 
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 300px;
     margin-bottom: 400px;
     border-radius: 15px;
   }
-  
-  
+
+
   .homeContentWords {
     display: flex;
     flex-direction: column;
@@ -145,11 +145,11 @@
     display: flex;
     justify-content: center;
   }
-  
+
   #shiftRight {
     margin-right: 90px;
   }
-  
+
   .homeContentWords h3 {
     font-size: 49px;
     margin-top: 44px;
@@ -157,7 +157,7 @@
     display: flex;
     justify-content: center;
   }
-  
+
   .homeContentWords h4 {
     font-size: 20px;
     font-weight: lighter;
@@ -174,13 +174,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
     background-color: black;
     opacity: .9;
-    border-radius: 5px;   
+    border-radius: 5px;
 
   }
-  
+
   .Screen5 h3,
   .Screen5 h4 {
     margin: 0 auto;
@@ -189,12 +189,12 @@
     display: flex;
     justify-content: center;
   }
-  
+
   .Screen5 h3 {
       font-family: "Kanit", sans-serif;
       font-size: 53px;
   }
-  
+
   .Screen5 h4 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -203,7 +203,7 @@
     text-align: center;
     width: 940px;
     margin-bottom: 105px;
-  }   
+  }
 
   .Logo {
     width: 40px;
@@ -214,9 +214,9 @@
     left: 4%;
     top: 3em;
     font-size: large;
-    
+
   }
- 
+
 .footer h1 {
   font-size: 50px;
   display: flex;
@@ -224,11 +224,11 @@
   margin: auto;
 }
   ul {
-    display: flex;  
-    justify-content: space-around;  
+    display: flex;
+    justify-content: space-around;
     flex-direction: column;
     align-items: center;
-    min-height: 8vh; 
+    min-height: 8vh;
     padding-inline: 20px;
 }
 
@@ -238,7 +238,7 @@ h1.about-header {
 
 p {
     color: white;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: 5px;
     font-size: 22px;
 }
@@ -268,12 +268,12 @@ img {
   background-color: black;
   color: white;
   opacity: .9;
-  border-radius: 5px; 
-  margin: 0 auto; 
-  margin-top: 300px; 
-  margin-bottom: 400px;  
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 300px;
+  margin-bottom: 400px;
   text-decoration: none;
-}  
+}
 
 .github-links {
   display: flex;
@@ -294,7 +294,7 @@ img {
   display: flex;
   align-items: center;
   gap: 30px;
-  
+
 }
 
 .github-repo {
