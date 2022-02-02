@@ -3,7 +3,7 @@
   left: 0;
   right: 0;
   display: grid;
-  grid-template-columns: 100px 300px 1fr 1fr 250px;
+  grid-template-columns: 4.5rem 300px 1fr 1fr 250px;
   grid-template-rows: 20px 75px 1fr 1fr 1fr;
   height: 100vh;
   /* background-color: rgb(46, 46, 46); */

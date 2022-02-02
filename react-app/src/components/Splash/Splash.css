@@ -236,12 +236,7 @@ h1.about-header {
     padding: 30px 0;
 }
 
-p {
-    color: white;
-    /* text-transform: uppercase; */
-    letter-spacing: 5px;
-    font-size: 22px;
-}
+
 
 li {
     list-style: none;

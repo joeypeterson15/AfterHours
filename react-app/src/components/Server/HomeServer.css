@@ -77,10 +77,10 @@
 }
 
 .dm-wrapper {
-
+position: relative;
 background-color: #2c2c2c;
 height: 100vh;
-border-top-left-radius: 17px;
+/* border-top-left-radius: 17px; */
 width: 16rem;
 }
 .start-conversation {
@@ -93,13 +93,14 @@ width: 16rem;
   margin: 15px auto 0 auto;
   width: 13rem;
   border-radius: 7px;
-  font-size: 10px;
+  font-size: 12px;
   height: 8px;
   color: grey
 
 }
 .dm-icon {
-  height: 40px;
+  height: 1rem;
+  font-size: 10px;
   position: relative;
   display: flex;
   padding: 1rem;
@@ -107,6 +108,8 @@ width: 16rem;
   width: 90%;
   align-items: center;
   gap: 1rem;
+  font-size: 15px;
+  color: grey;
 }
 
 .dm-icon span {
@@ -130,8 +133,8 @@ width: 16rem;
 }
 
 .dm-links {
-  width: 40px;
-  height: 40px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
 }
 
@@ -143,6 +146,7 @@ width: 16rem;
   padding: 1rem;
   height: 80%;
   overflow-y: auto;
+  font-size: 13px;
 }
 
 .is-online,.is-offline {
@@ -172,5 +176,5 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   position: absolute;
   bottom: 0;
   width: 16rem;
-  left: 6.25rem;
+  left: 0;
 }
