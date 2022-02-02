@@ -1,11 +1,11 @@
 .loggedin-container {
-    background-color: rgb(51, 51, 51);
+    background-color: rgba(29, 29, 29, 0.9);
     /* margin: auto 0 0 0; */
     height: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10.39rem;
+    /* margin-top: 10.39rem; */
 }
 .left-loggedin {
   display: flex;

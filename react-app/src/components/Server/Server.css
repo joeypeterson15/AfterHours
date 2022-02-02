@@ -1,15 +1,18 @@
 .server-container {
+    background-color: red;
     border-left: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    width: 100%;
+    width: 4rem;
     height: 100%;
     text-align: center;
     overflow-y:hidden;
     grid-column: 1 / 2;
-    grid-row: 1 / 6
+    grid-row: 1 / 6;
+    margin-right: 0;
+
 }
 
 .server-container:nth-child(1){
@@ -19,8 +22,8 @@
     box-sizing: border-box;
     border-radius: 50%;
 
-    height: 60px;
-    width: 60px;
+    height: 3rem;
+    width: 3rem;
     text-align: center;
     padding-top: 13%;
     font-size: 20px;
