@@ -8,8 +8,25 @@
   position: relative;
   display: flex;
   flex-direction: column;
-
 }
+
+.dm-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #2b2b2b;
+  padding: 1rem;
+  height: 80%;
+  overflow-y: auto;
+  font-size: 13px;
+}
+
+.loggedin-main-channel-div {
+  position: absolute;
+  bottom: 0;
+  width: 16rem;
+}
+
 .channels-container .scroll {
   padding-bottom: 2rem;
   overflow-y: scroll;
@@ -221,6 +238,7 @@
   padding: 0 1rem  0.7rem 1rem;
   white-space: nowrap;
   color: white;
+  margin-top: 1rem;
 }
 
 #server-name-in-channel {

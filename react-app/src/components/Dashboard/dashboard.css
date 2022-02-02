@@ -9,3 +9,13 @@
   /* background-color: rgb(46, 46, 46); */
   background-color: #36393f;
 }
+
+#black-line {
+  position: absolute;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  height: 0.05rem;
+  top: 3rem;
+  left: 4.5rem;
+}

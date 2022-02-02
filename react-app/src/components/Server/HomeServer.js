@@ -66,7 +66,7 @@ const HomeServer = () => {
     <>
     <div className='dm-wrapper'>
       <span className='start-conversation'>
-        <p id="search-users" onClick={handleClick}>Start a conversation</p>
+        <p id="search-users" onClick={handleClick}>Find or start a conversation</p>
       </span>
       <div className='dm-container'>
         <h3>Direct Messages</h3>

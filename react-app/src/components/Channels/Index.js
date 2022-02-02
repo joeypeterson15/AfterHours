@@ -65,8 +65,8 @@ const Channels = ({id}) => {
 
     <>
       {serverId === 'explore' ? <Explore /> :
-      <div className="channels-container">
-        <div className="scroll">
+      <div className="dm-wrapper">
+
 
           {serverId && (<div>
             <div className="edit-server-div">
@@ -100,8 +100,10 @@ const Channels = ({id}) => {
         </Link>
 
           )}
+          <div className="loggedin-main-channel-div">
+            <LoggedIn />
+
           </div>
-          <LoggedIn />
       </div>}
 
       {showSettings && <ChannelEdit channel={channelToEdit} serverId={serverId} setShowSettings={setShowSettings} showSettings={showSettings}/>}
