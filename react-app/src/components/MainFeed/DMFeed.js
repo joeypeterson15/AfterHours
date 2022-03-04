@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { createDm, fetchDms } from '../../store/dmMessages';
 import './DmFeed.css'
+import './MainFeed.css'
 
 
 import { io } from 'socket.io-client';
@@ -122,7 +123,7 @@ const handleDm = (e) => {
                       className="input-dm-message"
                       value={body}
                       onChange={(e)=> setBody(e.target.value)}
-                      // placeholder={`Message #${dmuser?.friendName}...`}
+                      placeholder={`Message #${dmuser?.friendName}...`}
                   ></input>
           </form>
 

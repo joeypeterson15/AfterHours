@@ -66,13 +66,13 @@
 
   font-weight: 900;
 }
-.create-channel input,input::placeholder {
+/* .create-channel input,input::placeholder {
   background-color: #292d3e;
   padding: 0.75rem 0.45rem;
   font-size: 1.25rem;
   border-radius: 5px;
   color: white;
-}
+} */
 .create-channel input:focus {
   outline-color: #00aff4;
 }
