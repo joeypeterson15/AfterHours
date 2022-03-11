@@ -53,10 +53,9 @@ const HomeServer = () => {
 
 
   const handleRemove = (id) => {
-    console.log('id', id)
       dispatch(deleteOneDmChannel(id))
       setDmUser(null)
-      history.push('/dashboard')
+      history.push(`/dashboard`)
   }
 
 

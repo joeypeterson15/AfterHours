@@ -51,6 +51,8 @@
   /* max-height: 25px; */
   width: 100%;
   margin-top: 0.2rem;
+  /* padding-left: 0.5rem; */
+  cursor: pointer;
 }
 .results-found.search-container {
   height: 400px;
@@ -179,3 +181,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   width: 16rem;
   left: 0;
 }
+
+.search-username {
+  color: white;
+  padding-left: 0.4rem;
+}
+
+/* .search-avatar {
+  margin-left: 1rem;
+} */

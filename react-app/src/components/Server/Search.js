@@ -59,9 +59,9 @@ const Search = ({ setShowModal }) => {
 
         <div  className='search-results-div' onClick={()=> {addDmChannel(user)}}>
 
-          <img src={user.avatar}></img>
-          <p>{user.username}</p>
-          </div>
+          <img className="search-avatar" src={user.avatar}></img>
+          <p className="search-username">{user.username}</p>
+        </div>
 
         ))}
 

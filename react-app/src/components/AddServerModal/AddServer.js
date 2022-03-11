@@ -22,7 +22,7 @@ function AddServer({ setShowModal, servers }){
 
     useEffect(() => {
         dispatch(getServers)
-    })
+    }, [])
     useEffect(() => {
 
         let count = 0
