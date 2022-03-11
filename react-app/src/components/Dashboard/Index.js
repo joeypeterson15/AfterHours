@@ -22,7 +22,7 @@ const Dashboard = () => {
       <Channels />
       <MainFeed />
       {serverId == 'explore' ? '' : <div id="black-line"></div>}
-      {(serverId == 'explore' ||  window.location.href.includes('home')) ? null  : <ServerMembersFeed />}
+      {(serverId == 'explore' ||  window.location.href.includes('home') || window.location.href.includes('dashboard')) ? null  : <ServerMembersFeed />}
       {/* <Members / > */}
       { window.location.href.includes('dashboard') ? <img className='wumbus' src='https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5e6ff2eb37d0440006bc9fe7%2FDiscord%2F960x0.jpg%3Ffit%3Dscale'></img>: ''}
     </div>

@@ -119,11 +119,12 @@
 }
 
 .dm-members-div {
-  background-color: rgb(83, 83, 83);
-  position: absolute;
-  right: 0;
-  height: 100%;
-  width: 14rem;
+  background-color: rgb(39, 39, 39);
+    width: 15vw;
+    position: absolute;
+    height: 100vh;
+    height: 50rem;
+    right: 0;
 }
 
 .dm-div {

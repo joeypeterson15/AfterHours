@@ -59,20 +59,6 @@ function MessageBox({ message, setMessageBeingEdited, messageBeingEdited, setSho
         setMessageCharacterCounter(message?.body.length);
     }
 
-    // const formattedDate = messageDate.toLocaleString();
-    // const formattedTime = messageDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-    // const messageDate = new Date(message.createdAt)
-
-
-//     const formatDateAndTime = (date) => {
-//         const time = new Date(date).toLocaleTimeString('en');
-
-//         const arr = date.split('-');
-//         const monthAndDay = `${arr[1]}/${arr[2].slice(0,2)}/${arr[0]}`
-
-//         return `${monthAndDay} ${time}`;
-
-//   }
 
 const convertTime = function(oldTime){
     let newTime = oldTime.split(' ')[1]
