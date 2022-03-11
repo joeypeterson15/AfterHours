@@ -23,15 +23,23 @@
 
 .user-logout {
   padding: 1rem;
+  cursor: pointer;
 }
 
 .user-logout:hover {
-  background-color: blue;
+  background-color: cadetblue;
   /* color: rgb(0, 0, 0); */
 }
 
 .cancel {
-  color: rgba(255, 38, 38, 0.8)
+  /* color: rgba(255, 38, 38, 0.8); */
+  cursor: pointer;
+
+}
+
+.cancel:hover {
+  background-color: cadetblue;
+  /* color: red */
 }
 
 

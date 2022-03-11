@@ -247,8 +247,10 @@
 
 .plus-color {
   color: rgb(223, 223, 223);
+  cursor: pointer;
 }
 
 .minus-color {
- color: rgb(233, 184, 184);
+ color: rgba(96, 166, 168, 0.7);
+ cursor: pointer;
 }

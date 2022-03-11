@@ -5,6 +5,7 @@
     padding: 5px;
     border-radius: 7px;
     color: rgb(216, 216, 216);
+    cursor: pointer;
 }
 
 .edit-server-container span:hover {
@@ -23,6 +24,7 @@
     display: flex;
     flex-direction: column;;
     justify-content: space-between;
+    cursor: pointer;
 }
 .edit-server-dropdown-non-owner {
     position: absolute;
@@ -52,6 +54,7 @@
     border: none;
     padding: 7px;
     margin-top: 5px;
+    cursor: pointer;
 }
 .rndm {
     margin-top: auto;
@@ -80,6 +83,7 @@
     background-color: transparent;
     width: 100%;
     padding: 5px;
+    cursor: pointer;
 }
 
 .delete-server:hover {
@@ -90,7 +94,14 @@
 .unjoin-server {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    cursor: pointer;
+    color: black;
+    font-weight: 500;
+    border: none;
+}
 
+.unjoin-server:hover {
+    background-color:rgb(190, 190, 190)
 }
 
 
@@ -99,4 +110,8 @@
     flex-direction: column ;
     justify-content: space-between;
     height: 5rem;
+}
+
+.edit-server-options-heading {
+    color: white;
 }

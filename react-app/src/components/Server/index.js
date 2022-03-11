@@ -70,7 +70,7 @@ function Server () {
                     <div className="home-server">
                         <Link className='server-links' to={`/home/${homeServer.id}`}>
                             <div className='server-links-div' style={{backgroundImage: `url(${homeServer?.avatar})`}}>
-                              
+
                             </div>
 
                         </Link>
@@ -95,13 +95,17 @@ function Server () {
 
             </div>
 
-
+            <div className="add-explore-div">
                     <div className='add-server-modal' >
-                    <AddServerModal servers={servers} />
+                        <AddServerModal servers={servers} />
                     </div>
                     <div className='server-links-explore'>
                         <Link to='/explore'><div className="explore-server-icon"><i className="fas fa-compass"></i></div></Link>
                     </div>
+
+            </div>
+
+
 
 
         </div>

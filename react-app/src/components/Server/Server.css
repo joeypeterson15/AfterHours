@@ -51,9 +51,10 @@
     overflow-y: scroll;
 }
 .small-servers-div {
-    /* background-color: red; */
-    /* height: 10rem; */
-    overflow-y: scroll;
+    /* background-color: blue; */
+    min-height: 5rem;
+    max-height: 20rem;
+    /* overflow-y: scroll; */
 }
 
 
@@ -89,14 +90,34 @@
 
 }
 
-.add-server-modal, .server-links-explore{
+.add-explore-div {
+    /* padding: 3rem; */
+    position: relative;
+    /* background-color: red; */
+    height: 7rem;
+    margin-top: 1rem;
+}
+
+.server-links-explore {
     background-color: rgb(56, 56, 56);
     box-sizing: border-box;
     border-radius: 50%;
     height: 3rem;
     width: 3rem;
     text-align: center;
-    padding-top: 13%;
+    padding-top: 15%;
+    font-size: 20px;
+    margin-top: 0.5rem;
+}
+
+.add-server-modal{
+    background-color: rgb(56, 56, 56);
+    box-sizing: border-box;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    text-align: center;
+    padding-top: 16%;
     font-size: 20px;
 
 }

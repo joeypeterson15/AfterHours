@@ -61,9 +61,9 @@ const EditServer = ({setShowMenu, server}) => {
         <div className="server-edit-form" >
                 <form onSubmit={handleEdit}>
 
-                <h3>Server Edit Options</h3>
+                <h3 className="edit-server-options-heading">Edit Server Name</h3>
                     <div className='rndm'>
-                        <label>Edit Server Name
+
 
                         <input
                             type='text'
@@ -71,7 +71,7 @@ const EditServer = ({setShowMenu, server}) => {
                             onChange={(e) => setEditServer(e.target.value)}
                             required
                             />
-                            </label>
+
                         <div>
                             <button className='edit-server-name' type='submit'>Update Name</button>
                         </div>
@@ -80,7 +80,7 @@ const EditServer = ({setShowMenu, server}) => {
                 </form>
                 <form  className='delete-server-button-form' onSubmit={handleDelete}>
 
-                    <button className= "delete-server" type='submit'>Delete Server</button>
+                    <button className= "delete-server" type='submit'>Delete {server?.name}</button>
                     <button className="edit-server-name" onClick={() => setShowMenu(false)}>Cancel</button>
 
                 </form>
@@ -96,7 +96,7 @@ const EditServer = ({setShowMenu, server}) => {
 
             <div className="edit-server-dropdown-non-owner">
 
-                <button onClick={removeServer} className="unjoin-server">Unjoin server</button>
+                <button onClick={removeServer} className="unjoin-server">Unjoin {server?.name}</button>
                 <button className="unjoin-server" onClick={() => setShowMenu(false)}>Cancel</button>
 
             </div>
